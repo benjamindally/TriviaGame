@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>California Trivia</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="./assets/javascript/app.js"></script>
+	<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+	<div class="allcontent container-fluid">
+		<div class="row title">
+			<div class="col-md-12">
+				<h1 class="text-center header">TRIVIA FOR CALIFORNIANS</h1>
+				<!-- <img src="./assets/images/i_love_you_ca_bear.png"> -->
+			</div>
+		</div>	
+
+		<div class="row">
+			<div class="text-center col-md-12">
+				<div class="game_header game_arena text-center">
+				<h5 class="timer">Press start to begin</h5>
+				<input class="start_button" type="button" name="start_button" value="Start">
+				</div>
+				<div class="mx-auto game_arena">
+					<div class="game_field">
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<img class="bear" src="./assets/images/i_love_you_ca_bear.png">
+	<audio id="finish_sound">
+		<source src="./assets/sounds/i_love_you_song.mp3" type="audio/mpeg">
+	</audio>
+</body>
+</html>
