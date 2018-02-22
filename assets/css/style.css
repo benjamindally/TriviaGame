@@ -28,6 +28,7 @@ body{
 	margin: 15px;
 	padding: 5px 30px 5px 30px;
 	background: gold;
+	cursor: pointer;
 }
 
 .game_header{
@@ -63,4 +64,11 @@ body{
 .after_image{
 	width: 90%;
 	margin-top: 15px;
+}
+
+.reset_button{
+	text-align: center;
+	background: gold;
+	padding: 5px 30px 5px 30px;
+	cursor: pointer;
 }

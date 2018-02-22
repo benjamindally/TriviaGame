@@ -49,6 +49,7 @@ $(document).ready(function(){
 		beginTimer();
 	})
 
+
 	function beginTimer(){
 		if (running = false){
 			clearInterval(countdown);
@@ -85,8 +86,11 @@ $(document).ready(function(){
 	}
 
 	function firstQuestion(){
+		$(".game_header").html("<h3>Time Remaining: 30 </h3>");
+		$(".game_field").empty()
 		var countdown;
 		questionNumber++;
+
 		timer();
 		function timer(){
 			var timer = 30;
@@ -512,5 +516,21 @@ $(document).ready(function(){
 		$(".game_header").html("<h3>How'd you do?</h3>");
 		$(".game_field").html("<br><br><p>Correct: " + correct + "</p><p>Incorrect: " + incorrect + "</p><p>Unanswered: " + noInput + "</p>");
 		gameSound.play();
+		$(".game_field").append("<input class='reset_button' value='Restart'>");
+		$(".reset_button").on("click", function(){
+			resetGame();
+		});
+		
+	}
+
+	
+
+	function resetGame(){
+		questionNumber = -1;
+		correct = 0;
+		incorrect = 0;
+		noInput = 0;
+
+		firstQuestion();
 	}
 })
