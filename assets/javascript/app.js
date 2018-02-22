@@ -530,7 +530,7 @@ $(document).ready(function(){
 		correct = 0;
 		incorrect = 0;
 		noInput = 0;
-
+		gameSound.pause();
 		firstQuestion();
 	}
 })
