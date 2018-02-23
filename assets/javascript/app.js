@@ -1,11 +1,12 @@
 $(document).ready(function(){
+	//question bank
 	var allQuestions = [
 		{
-			question: "When did California attain statehood?",
-			answerChoices: [1848, 1849, 1850, 1851],
-			imgUrl: "./assets/images/flag.png"},
+			question: "When did California attain statehood?",//quesion
+			answerChoices: [1848, 1849, 1850, 1851],//possible answer choices
+			imgUrl: "./assets/images/flag.png"},//image for after user selects an answer
 		{
-			question: "One in _____ Americans is a Californian?",
+			question: "One in _____ Americans is a Californian?",//repeated for each question
 			answerChoices: [5, 6, 7, 8],
 			imgUrl: "./assets/images/people.png"},
 		{
@@ -35,21 +36,21 @@ $(document).ready(function(){
 		]
 	
 
-	var correct = 0;
-	var incorrect = 0;
-	var noInput = 0;
-	var questionNumber = -1;
-	var running = false
-	var gameSound = document.getElementById('finish_sound');
+	var correct = 0;//counter questions answered correctly
+	var incorrect = 0;//counter for questions answered incorrectly
+	var noInput = 0;//counter for if there is no user input and it times out
+	var questionNumber = -1;//counter to iterate through allquestions
+	var running = false//helps timer to know when it is either on or off
+	var gameSound = document.getElementById('finish_sound');//gets the sound for the end of the game
 
-
+	//on start button click, the game begins
 	$(".start_button").on("click", function(){
 		$(".game_header").html("<h3>Time Remaining: 30</h3>");
 		firstQuestion();
 		beginTimer();
 	})
 
-
+	//the first timer begins after the start button is pressed
 	function beginTimer(){
 		if (running = false){
 			clearInterval(countdown);
@@ -67,10 +68,11 @@ $(document).ready(function(){
 		}
 	}
 
-	function nextQuestion(){
-		console.log(noInput);
-	}
+	// function nextQuestion(){
+	// 	console.log(noInput);
+	// }
 
+	//This function prints all the game information to the screen, gives it a class so it displays well and makes it visibile
 	function printInformation(){
 		$(".game_field").append("<p class='question'></p>");
 		$(".question").text(allQuestions[questionNumber].question);
@@ -85,12 +87,15 @@ $(document).ready(function(){
 		$(".answer_four").text(allQuestions[questionNumber].answerChoices[3]);
 	}
 
+	//each quetison has its own function since each question has a unique answer that is correct.
+	//also, each quetion has its own timer so that the timer doesn't appear to pick up speed as the timer is called again by different funcitons
+	//these comments are for all the functions associated with questions
 	function firstQuestion(){
-		$(".game_header").html("<h3>Time Remaining: 30 </h3>");
-		$(".game_field").empty()
-		var countdown;
-		questionNumber++;
-
+		$(".game_header").html("<h3>Time Remaining: 30 </h3>");//starts off at 30
+		$(".game_field").empty()//clears out the div so the correct informaiton can be input
+		var countdown;//resets the countdown
+		questionNumber++;//says what quesiton number the game is on
+		//new timer for each so that it doesn't overlap and cause problems
 		timer();
 		function timer(){
 			var timer = 30;
@@ -109,7 +114,7 @@ $(document).ready(function(){
 		console.log("correct " +correct);
 		console.log("incorrect " + incorrect)
 		printInformation();
-
+		//each answer button is unique so it needs a unique on click function
 		$(".answer_one").on("click", function(){
 			incorrect++;
 			$(".question").html("<h3> Sorry, that's incorrect.</h3><h3>The correct answer was 1850.</h3>");
@@ -130,7 +135,7 @@ $(document).ready(function(){
 			$(".question").html("<h3> Sorry, that's incorrect.</h3><h3>The correct answer was 1850.</h3>");
 			moveOn();
 		});
-
+		//function to move from one question to the next
 		function moveOn(){
 			$(".choices").css("visibility", "hidden");
 			clearInterval(countdown);
